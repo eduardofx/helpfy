@@ -1,0 +1,215 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 95%;
+    --foreground: 215 50% 23%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 23%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 23%;
+
+    --primary: 215 50% 23%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 14 89% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --coral: 14 89% 65%;
+    --coral-light: 14 89% 75%;
+    --coral-dark: 14 89% 55%;
+
+    --navy: 215 50% 23%;
+    --navy-light: 215 40% 35%;
+    --navy-dark: 215 55% 15%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 215 25% 40%;
+
+    --accent: 14 89% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 14 89% 65%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 50% 15%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 50% 18%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 50% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 215 50% 23%;
+
+    --secondary: 14 89% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 40% 25%;
+    --muted-foreground: 215 10% 75%;
+
+    --accent: 14 89% 55%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 40% 25%;
+    --input: 215 40% 25%;
+    --ring: 14 89% 65%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins overflow-x-hidden antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold tracking-tight;
+  }
+
+  .parallax {
+    @apply will-change-transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .parallax-layer {
+    @apply absolute w-full h-full transition-transform duration-500 ease-out;
+    transform: translateZ(0);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-coral to-coral-light bg-clip-text text-transparent;
+  }
+
+  .gradient-coral {
+    @apply bg-gradient-to-r from-coral to-coral-light;
+  }
+
+  .gradient-navy {
+    @apply bg-gradient-to-br from-navy to-navy-dark;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .btn-coral {
+    @apply bg-coral hover:bg-coral-dark text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02];
+  }
+
+  .btn-navy {
+    @apply bg-navy hover:bg-navy-light text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02];
+  }
+
+  .btn-outline-coral {
+    @apply border-2 border-coral text-coral hover:bg-coral hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300;
+  }
+
+  .btn-outline-navy {
+    @apply border-2 border-navy text-navy hover:bg-navy hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
