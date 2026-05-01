@@ -112,8 +112,11 @@ const DownloadSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+
                 >
-                  <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.98 }} onClick={() => {
+                    alert("EM BREVE! Estamos trabalhando para disponibilizar o aplicativo nas lojas. Fique ligado!");
+                  }}>
                     <Button className="bg-white text-navy hover:bg-white/90 group flex items-center gap-3 py-6 px-8 rounded-xl shadow-lg w-full sm:w-auto">
                       <Apple className="w-6 h-6" />
                       <div className="text-left">
@@ -122,7 +125,9 @@ const DownloadSection = () => {
                       </div>
                     </Button>
                   </motion.div>
-                  <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.98 }} onClick={() => {
+                    alert("EM BREVE! Estamos trabalhando para disponibilizar o aplicativo nas lojas. Fique ligado!");
+                  }}>
                     <Button className="bg-navy text-white hover:bg-navy-light group flex items-center gap-3 py-6 px-8 rounded-xl shadow-lg w-full sm:w-auto">
                       <Smartphone className="w-6 h-6" />
                       <div className="text-left">

@@ -66,7 +66,7 @@ const BenefitsSection = () => {
     {
       icon: Calendar,
       title: "Tudo em Um App",
-      description: "Busque, contrate, pague e avalie sem sair da plataforma."
+      description: "Busque, contrate e avalie sem sair da plataforma."
     }
   ];
 
