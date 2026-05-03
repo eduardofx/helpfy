@@ -15,8 +15,6 @@ const Footer = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [50, 0]);
 
   const socialLinks = [
-    { name: "facebook", icon: Facebook, href: "#" },
-    { name: "twitter", icon: Twitter, href: "#" },
     {
       name: "instagram",
       icon: Instagram,
@@ -88,21 +86,26 @@ const Footer = () => {
           <div>
             <h5 className="font-bold mb-4">Links</h5>
             <ul className="space-y-2 text-white/60">
-              {["Sobre", "Planos", "Blog", "Carreiras", "Contato"].map(
-                (link, index) => (
-                  <motion.li
-                    key={link}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
+              {[
+                { label: "Sobre", href: "#how-it-works" },
+                { label: "Planos", href: "#plans" },
+                { label: "Contato", href: "#contact" },
+              ].map((link, index) => (
+                <motion.li
+                  key={link.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <a
+                    href={link.href}
+                    className="hover:text-coral transition-colors"
                   >
-                    <a href="#" className="hover:text-coral transition-colors">
-                      {link}
-                    </a>
-                  </motion.li>
-                ),
-              )}
+                    {link.label}
+                  </a>
+                </motion.li>
+              ))}
             </ul>
           </div>
 
