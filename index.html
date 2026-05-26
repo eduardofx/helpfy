@@ -1,22 +1,64 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HelpFy - Conectando profissionais e clientes</title>
-    <meta name="description" content="A nova forma de contratar profissionais com segurança, agilidade e qualidade" />
+    <meta
+      name="description"
+      content="A nova forma de contratar profissionais com segurança, agilidade e qualidade"
+    />
     <meta name="author" content="HelpFy" />
 
-    <meta property="og:title" content="HelpFy - Conectando profissionais e clientes" />
-    <meta property="og:description" content="A nova forma de contratar profissionais com segurança, agilidade e qualidade" />
+    <meta
+      property="og:title"
+      content="HelpFy - Conectando profissionais e clientes"
+    />
+    <meta
+      property="og:description"
+      content="A nova forma de contratar profissionais com segurança, agilidade e qualidade"
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta
+      property="og:image"
+      content="https://lovable.dev/opengraph-image-p98pqg.png"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@helpfy_app" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta
+      name="twitter:image"
+      content="https://lovable.dev/opengraph-image-p98pqg.png"
+    />
+
+    <!-- SPA redirect: restore path encoded by 404.html -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Also handle the query-param technique used by 404.html
+        var l = window.location;
+        if (l.search[1] === "p" && l.search.indexOf("p=/") === 1) {
+          var decoded = l.search.slice(1).split("&");
+          var path = decoded[0].replace(/^p=/, "").replace(/~and~/g, "&");
+          var query = decoded[1]
+            ? decoded[1].replace(/^q=/, "").replace(/~and~/g, "&")
+            : "";
+          history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) +
+              (path || "/") +
+              (query ? "?" + query : "") +
+              l.hash,
+          );
+        }
+      })();
+    </script>
   </head>
 
   <body>
